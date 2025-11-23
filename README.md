@@ -1,3 +1,2 @@
-# My Portfolio
-
-This repository is a scaffold for a portfolio site. Fill in the source files in `src/` and add assets to `public/`.
+# Portfolio
+My professional web portfolio, showcasing a curated collection of my full-stack projects, development skills, and professional journey.
