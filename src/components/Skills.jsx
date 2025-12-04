@@ -2,20 +2,20 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../data/portfolio';
 
-const Skills = ({ darkMode }) => {
+const Skills = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <section id="skills" ref={ref} className="py-20 px-6">
+    <section id="skills" ref={ref} className="py-24 px-6 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Technologies</h2>
-          <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            My technical toolkit - constantly growing and evolving
+        <div className={`mb-20 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Technical Arsenal<span className="text-accent">.</span></h2>
+          <p className="text-lg text-primary-muted max-w-2xl leading-relaxed">
+            My constantly evolving toolkit for building digital experiences.
           </p>
         </div>
 
@@ -24,50 +24,37 @@ const Skills = ({ darkMode }) => {
           {Object.entries(skills).map(([category, skillList], catIndex) => (
             <div
               key={category}
-              className={`${
-                darkMode ? 'bg-gray-800' : 'bg-white'
-              } rounded-xl p-8 shadow-xl border ${
-                darkMode ? 'border-gray-700' : 'border-gray-200'
-              } hover:shadow-2xl transition-all ${inView ? 'animate-slide-up' : 'opacity-0'}`}
+              className={`glass rounded-2xl p-8 hover:bg-white/5 transition-all duration-500 group ${inView ? 'animate-slide-up' : 'opacity-0'}`}
               style={{ animationDelay: `${catIndex * 100}ms` }}
             >
-              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent flex items-center gap-2">
+              <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
+                <span className="w-2 h-8 bg-accent rounded-full" />
                 {category}
               </h3>
-              <div className="space-y-5">
+
+              <div className="space-y-6">
                 {skillList.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <div className="flex justify-between items-center mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl">{skill.icon}</span>
-                        <span className="font-medium text-lg">{skill.name}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{skill.icon}</span>
+                        <span className="font-medium text-lg text-primary-muted group-hover:text-white transition-colors">{skill.name}</span>
                       </div>
-                      <span
-                        className={`text-sm font-semibold ${
-                          darkMode ? 'text-gray-400' : 'text-gray-600'
-                        }`}
-                      >
+                      <span className="text-sm font-mono text-accent/80">
                         {skill.level}%
                       </span>
                     </div>
-                    <div
-                      className={`h-3 rounded-full overflow-hidden ${
-                        darkMode ? 'bg-gray-700' : 'bg-gray-200'
-                      }`}
-                    >
+                    <div className="h-1.5 rounded-full overflow-hidden bg-white/5">
                       <div
-                        className={`h-full rounded-full transition-all duration-1000 ease-out ${
-                          skill.level >= 80
-                            ? 'bg-gradient-to-r from-green-500 to-emerald-600'
-                            : skill.level >= 60
-                            ? 'bg-gradient-to-r from-blue-500 to-cyan-600'
-                            : 'bg-gradient-to-r from-yellow-500 to-orange-600'
-                        }`}
+                        className="h-full rounded-full bg-gradient-to-r from-accent to-purple-500 relative"
                         style={{
                           width: inView ? `${skill.level}%` : '0%',
+                          transition: 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)',
                           transitionDelay: `${catIndex * 100 + skillIndex * 50}ms`,
                         }}
-                      />
+                      >
+                        <div className="absolute inset-0 bg-white/20 animate-pulse-slow" />
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -78,20 +65,21 @@ const Skills = ({ darkMode }) => {
 
         {/* Skill Level Legend */}
         <div
-          className={`mt-12 text-center ${inView ? 'animate-slide-up delay-300' : 'opacity-0'}`}
+          className={`mt-16 text-center ${inView ? 'animate-slide-up' : 'opacity-0'}`}
+          style={{ animationDelay: '400ms' }}
         >
-          <div className="inline-flex gap-6 p-4 rounded-lg bg-gray-800/50 backdrop-blur-sm">
+          <div className="inline-flex gap-8 px-8 py-4 rounded-full glass">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-gradient-to-r from-green-500 to-emerald-600"></div>
-              <span className="text-sm">Advanced (80%+)</span>
+              <div className="w-3 h-3 rounded-full bg-accent animate-pulse"></div>
+              <span className="text-sm text-primary-muted">Advanced</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-gradient-to-r from-blue-500 to-cyan-600"></div>
-              <span className="text-sm">Intermediate (60-79%)</span>
+              <div className="w-3 h-3 rounded-full bg-purple-500/80"></div>
+              <span className="text-sm text-primary-muted">Intermediate</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-gradient-to-r from-yellow-500 to-orange-600"></div>
-              <span className="text-sm">Learning (&lt;60%)</span>
+              <div className="w-3 h-3 rounded-full bg-white/20"></div>
+              <span className="text-sm text-primary-muted">Learning</span>
             </div>
           </div>
         </div>

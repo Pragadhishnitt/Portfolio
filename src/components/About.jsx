@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { Code, Zap, Users, Target } from 'lucide-react';
 import { profile } from '../data/portfolio';
 
-const About = ({ darkMode }) => {
+const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -33,32 +33,24 @@ const About = ({ darkMode }) => {
   ];
 
   return (
-    <section
-      id="about"
-      ref={ref}
-      className={`py-20 px-6 ${darkMode ? 'bg-gray-800/50' : 'bg-gray-50'}`}
-    >
+    <section id="about" ref={ref} className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-          <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            Get to know who I am and what drives me
+        <div className={`mb-20 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Me<span className="text-accent">.</span></h2>
+          <p className="text-lg text-primary-muted max-w-2xl leading-relaxed">
+            Get to know who I am and what drives me.
           </p>
         </div>
 
         {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 gap-16 mb-24">
           {/* Bio */}
-          <div className={`${inView ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
+            <h3 className="text-2xl font-heading font-semibold mb-8 text-white">
               My Journey
             </h3>
-            <div
-              className={`${
-                darkMode ? 'text-gray-300' : 'text-gray-700'
-              } space-y-4 text-justify leading-relaxed`}
-            >
+            <div className="space-y-6 text-primary-muted text-lg leading-relaxed">
               {profile.fullBio.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph.trim()}</p>
               ))}
@@ -66,25 +58,33 @@ const About = ({ darkMode }) => {
           </div>
 
           {/* Highlights */}
-          <div className={`${inView ? 'animate-slide-in-right' : 'opacity-0'}`}>
-            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent">
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+            {/* About Image */}
+            {profile.aboutImage && (
+              <div className="mb-10 relative group">
+                <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                <img
+                  src={profile.aboutImage}
+                  alt="About Me"
+                  className="relative w-full h-64 md:h-80 object-cover rounded-2xl border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+            )}
+
+            <h3 className="text-2xl font-heading font-semibold mb-8 text-white">
               What I Bring
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {highlights.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={index}
-                    className={`p-4 rounded-xl ${
-                      darkMode ? 'bg-gray-800' : 'bg-white'
-                    } border ${
-                      darkMode ? 'border-gray-700' : 'border-gray-200'
-                    } hover:shadow-lg transition-all transform hover:-translate-y-1`}
+                    className="glass p-6 rounded-2xl hover:bg-white/5 transition-colors group"
                   >
-                    <Icon className="text-blue-500 mb-2" size={28} />
-                    <h4 className="font-semibold mb-1">{item.title}</h4>
-                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <Icon className="text-accent mb-4 group-hover:scale-110 transition-transform" size={28} />
+                    <h4 className="font-semibold mb-2 text-white">{item.title}</h4>
+                    <p className="text-sm text-primary-muted">
                       {item.description}
                     </p>
                   </div>
@@ -93,8 +93,8 @@ const About = ({ darkMode }) => {
             </div>
 
             {/* Currently Learning */}
-            <div className="mt-8">
-              <h4 className="font-semibold mb-3 flex items-center gap-2">
+            <div className="mt-12">
+              <h4 className="font-semibold mb-4 flex items-center gap-2 text-white">
                 <Zap className="text-yellow-500" size={20} />
                 Currently Exploring
               </h4>
@@ -102,35 +102,9 @@ const About = ({ darkMode }) => {
                 {profile.currentlyLearning.map((tech, index) => (
                   <span
                     key={index}
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      darkMode
-                        ? 'bg-yellow-900/30 text-yellow-400'
-                        : 'bg-yellow-100 text-yellow-700'
-                    }`}
+                    className="px-4 py-1.5 rounded-full text-sm bg-yellow-500/10 text-yellow-500 border border-yellow-500/20"
                   >
                     {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Interests */}
-            <div className="mt-6">
-              <h4 className="font-semibold mb-3 flex items-center gap-2">
-                <Target className="text-purple-500" size={20} />
-                Interests
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {profile.interests.map((interest, index) => (
-                  <span
-                    key={index}
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      darkMode
-                        ? 'bg-purple-900/30 text-purple-400'
-                        : 'bg-purple-100 text-purple-700'
-                    }`}
-                  >
-                    {interest}
                   </span>
                 ))}
               </div>
@@ -140,27 +114,19 @@ const About = ({ darkMode }) => {
 
         {/* Stats */}
         <div
-          className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${
-            inView ? 'animate-slide-up delay-200' : 'opacity-0'
-          }`}
+          className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${inView ? 'animate-slide-up' : 'opacity-0'
+            }`}
+          style={{ animationDelay: '300ms' }}
         >
           {Object.entries(profile.stats).map(([key, value], index) => (
             <div
               key={index}
-              className={`text-center p-6 rounded-xl ${
-                darkMode ? 'bg-gray-800' : 'bg-white'
-              } border ${
-                darkMode ? 'border-gray-700' : 'border-gray-200'
-              } shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2`}
+              className="glass p-8 rounded-2xl text-center hover:bg-white/5 transition-colors"
             >
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold text-white mb-2 font-heading">
                 {value}
               </div>
-              <div
-                className={`text-sm ${
-                  darkMode ? 'text-gray-400' : 'text-gray-600'
-                } capitalize`}
-              >
+              <div className="text-sm text-primary-muted capitalize tracking-wide">
                 {key.replace(/([A-Z])/g, ' $1').trim()}
               </div>
             </div>

@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { ChevronLeft, ChevronRight, Quote, Linkedin } from 'lucide-react';
 import { testimonials, experience } from '../data/portfolio';
 
-const Testimonials = ({ darkMode }) => {
+const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -15,7 +15,7 @@ const Testimonials = ({ darkMode }) => {
     if (testimonials.length > 0) {
       const timer = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-      }, 5000);
+      }, 6000);
       return () => clearInterval(timer);
     }
   }, []);
@@ -32,66 +32,56 @@ const Testimonials = ({ darkMode }) => {
   const companies = experience.filter(exp => exp.type === 'work' || exp.type === 'volunteer');
 
   return (
-    <section
-      id="testimonials"
-      ref={ref}
-      className={`py-20 px-6 ${darkMode ? 'bg-gray-800/50' : 'bg-gray-50'}`}
-    >
+    <section id="testimonials" ref={ref} className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Testimonials & Experience</h2>
-          <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            {testimonials.length > 0 
-              ? "What people say about working with me"
-              : "Companies and teams I've worked with"
+        <div className={`mb-20 text-center ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Endorsements<span className="text-accent">.</span></h2>
+          <p className="text-lg text-primary-muted max-w-2xl mx-auto leading-relaxed">
+            {testimonials.length > 0
+              ? "Words from those I've had the pleasure of working with."
+              : "Companies and teams I've collaborated with."
             }
           </p>
         </div>
 
         {/* Testimonials Carousel (if testimonials exist) */}
         {testimonials.length > 0 ? (
-          <div className={`relative ${inView ? 'animate-slide-up delay-100' : 'opacity-0'}`}>
-            <div className={`${
-              darkMode ? 'bg-gray-800' : 'bg-white'
-            } rounded-xl p-12 shadow-2xl border ${
-              darkMode ? 'border-gray-700' : 'border-gray-200'
-            } relative`}>
+          <div className={`relative max-w-4xl mx-auto ${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
+            <div className="glass rounded-3xl p-12 md:p-16 relative">
               {/* Quote Icon */}
-              <Quote className="absolute top-8 left-8 text-blue-500 opacity-20" size={48} />
+              <Quote className="absolute top-8 left-8 text-accent opacity-20" size={64} />
 
               {/* Testimonial Content */}
-              <div className="text-center max-w-3xl mx-auto relative z-10">
-                <p className={`text-xl md:text-2xl mb-8 italic ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
-                } leading-relaxed`}>
+              <div className="text-center relative z-10">
+                <p className="text-xl md:text-2xl mb-10 font-light text-white leading-relaxed italic">
                   "{testimonials[currentIndex].text}"
                 </p>
 
                 {/* Author Info */}
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex flex-col items-center gap-4">
                   {testimonials[currentIndex].image && (
                     <img
                       src={testimonials[currentIndex].image}
                       alt={testimonials[currentIndex].name}
-                      className="w-16 h-16 rounded-full object-cover"
+                      className="w-16 h-16 rounded-full object-cover border-2 border-accent/50"
                     />
                   )}
-                  <div className="text-left">
-                    <div className="font-bold text-lg flex items-center gap-2">
+                  <div>
+                    <div className="font-bold text-lg text-white flex items-center justify-center gap-2">
                       {testimonials[currentIndex].name}
                       {testimonials[currentIndex].linkedin && (
                         <a
                           href={testimonials[currentIndex].linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-500 hover:text-blue-600"
+                          className="text-accent hover:text-white transition-colors"
                         >
-                          <Linkedin size={18} />
+                          <Linkedin size={16} />
                         </a>
                       )}
                     </div>
-                    <div className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <div className="text-primary-muted text-sm">
                       {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                     </div>
                   </div>
@@ -103,18 +93,14 @@ const Testimonials = ({ darkMode }) => {
                 <>
                   <button
                     onClick={prevTestimonial}
-                    className={`absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full ${
-                      darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'
-                    } transition-colors`}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors backdrop-blur-sm"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button
                     onClick={nextTestimonial}
-                    className={`absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full ${
-                      darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'
-                    } transition-colors`}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors backdrop-blur-sm"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight size={24} />
@@ -124,16 +110,15 @@ const Testimonials = ({ darkMode }) => {
 
               {/* Dots Indicator */}
               {testimonials.length > 1 && (
-                <div className="flex justify-center gap-2 mt-8">
+                <div className="flex justify-center gap-2 mt-10">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentIndex
-                          ? 'bg-blue-500 w-8'
-                          : darkMode ? 'bg-gray-600' : 'bg-gray-300'
-                      }`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex
+                          ? 'bg-accent w-8'
+                          : 'bg-white/20 w-2 hover:bg-white/40'
+                        }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}
@@ -143,28 +128,22 @@ const Testimonials = ({ darkMode }) => {
           </div>
         ) : (
           /* Companies Worked With (placeholder when no testimonials) */
-          <div className={`${inView ? 'animate-slide-up delay-100' : 'opacity-0'}`}>
-            <div className={`${
-              darkMode ? 'bg-gray-800' : 'bg-white'
-            } rounded-xl p-12 shadow-xl border ${
-              darkMode ? 'border-gray-700' : 'border-gray-200'
-            }`}>
-              <h3 className="text-2xl font-bold text-center mb-8">
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
+            <div className="glass rounded-3xl p-12 border border-white/10">
+              <h3 className="text-2xl font-bold text-center mb-12 text-white">
                 Proud to have worked with
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-items-center">
                 {companies.map((company, index) => (
                   <div
                     key={index}
-                    className={`p-6 rounded-lg ${
-                      darkMode ? 'bg-gray-700/50' : 'bg-gray-50'
-                    } w-full text-center hover:scale-105 transition-transform`}
+                    className="group text-center transition-transform hover:scale-105"
                   >
-                    <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                    <div className="text-5xl font-bold mb-3 text-white/20 group-hover:text-accent transition-colors duration-300">
                       {company.company[0]}
                     </div>
-                    <div className="font-semibold">{company.company}</div>
-                    <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <div className="font-semibold text-white mb-1">{company.company}</div>
+                    <div className="text-xs text-primary-muted uppercase tracking-wider">
                       {company.role}
                     </div>
                   </div>
@@ -172,10 +151,8 @@ const Testimonials = ({ darkMode }) => {
               </div>
 
               {/* Add Testimonial Placeholder */}
-              <div className={`mt-12 p-6 rounded-lg border-2 border-dashed ${
-                darkMode ? 'border-gray-700' : 'border-gray-300'
-              } text-center`}>
-                <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              <div className="mt-16 p-8 rounded-2xl border border-dashed border-white/10 text-center bg-white/5">
+                <p className="text-primary-muted">
                   Testimonials coming soon! Building relationships and gathering feedback.
                 </p>
               </div>

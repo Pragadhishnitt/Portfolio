@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Send, CheckCircle, AlertCircle, MapPin, Phone } from 'lucide-react';
+import { Mail, Send, CheckCircle, AlertCircle, MapPin, Phone, ArrowRight } from 'lucide-react';
 import { profile } from '../data/portfolio';
 
-const Contact = ({ darkMode }) => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,101 +61,70 @@ const Contact = ({ darkMode }) => {
   };
 
   return (
-    <section
-      id="contact"
-      ref={ref}
-      className={`py-20 px-6 ${darkMode ? 'bg-gray-800/50' : 'bg-gray-50'}`}
-    >
+    <section id="contact" ref={ref} className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Connect</h2>
-          <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you!
+        <div className={`mb-20 text-center ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Let's Connect<span className="text-accent">.</span></h2>
+          <p className="text-lg text-primary-muted max-w-2xl mx-auto leading-relaxed">
+            Have an idea or project in mind or want to discuss opportunities? <br></br>
+            I'd love to hear from you.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-16">
           {/* Contact Info */}
-          <div className={`space-y-8 ${inView ? 'animate-slide-in-left' : 'opacity-0'}`}>
+          <div className={`space-y-10 ${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
             <div>
-              <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-8 leading-relaxed`}>
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of these channels:
+              <h3 className="text-2xl font-bold mb-6 text-white">Get In Touch</h3>
+              <p className="text-primary-muted text-lg leading-relaxed mb-8">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
 
             {/* Contact Methods */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               <a
                 href={`mailto:${profile.email}`}
-                className={`flex items-center gap-4 p-5 rounded-xl transition-all ${
-                  darkMode
-                    ? 'bg-gray-800 hover:bg-gray-700'
-                    : 'bg-white hover:bg-gray-50'
-                } border ${
-                  darkMode ? 'border-gray-700' : 'border-gray-200'
-                } shadow-lg hover:shadow-xl transform hover:-translate-y-1 group`}
+                className="flex items-center gap-6 p-6 rounded-2xl glass hover:bg-white/5 transition-all group"
               >
-                <div className="p-3 bg-blue-500/20 rounded-lg group-hover:scale-110 transition-transform">
-                  <Mail className="text-blue-500" size={24} />
+                <div className="p-4 bg-blue-500/10 rounded-xl group-hover:scale-110 transition-transform">
+                  <Mail className="text-blue-400" size={24} />
                 </div>
                 <div>
-                  <div className="font-semibold">Email</div>
-                  <div
-                    className={`text-sm ${
-                      darkMode ? 'text-gray-400' : 'text-gray-600'
-                    }`}
-                  >
+                  <div className="font-semibold text-white mb-1">Email</div>
+                  <div className="text-primary-muted group-hover:text-accent transition-colors">
                     {profile.email}
                   </div>
                 </div>
+                <ArrowRight className="ml-auto text-white/20 group-hover:text-white group-hover:translate-x-1 transition-all" size={20} />
               </a>
 
               {profile.phone && (
                 <a
                   href={`tel:${profile.phone}`}
-                  className={`flex items-center gap-4 p-5 rounded-xl transition-all ${
-                    darkMode
-                      ? 'bg-gray-800 hover:bg-gray-700'
-                      : 'bg-white hover:bg-gray-50'
-                  } border ${
-                    darkMode ? 'border-gray-700' : 'border-gray-200'
-                  } shadow-lg hover:shadow-xl transform hover:-translate-y-1 group`}
+                  className="flex items-center gap-6 p-6 rounded-2xl glass hover:bg-white/5 transition-all group"
                 >
-                  <div className="p-3 bg-green-500/20 rounded-lg group-hover:scale-110 transition-transform">
-                    <Phone className="text-green-500" size={24} />
+                  <div className="p-4 bg-green-500/10 rounded-xl group-hover:scale-110 transition-transform">
+                    <Phone className="text-green-400" size={24} />
                   </div>
                   <div>
-                    <div className="font-semibold">Phone</div>
-                    <div
-                      className={`text-sm ${
-                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                      }`}
-                    >
+                    <div className="font-semibold text-white mb-1">Phone</div>
+                    <div className="text-primary-muted group-hover:text-accent transition-colors">
                       {profile.phone}
                     </div>
                   </div>
+                  <ArrowRight className="ml-auto text-white/20 group-hover:text-white group-hover:translate-x-1 transition-all" size={20} />
                 </a>
               )}
 
-              <div
-                className={`flex items-center gap-4 p-5 rounded-xl ${
-                  darkMode ? 'bg-gray-800' : 'bg-white'
-                } border ${
-                  darkMode ? 'border-gray-700' : 'border-gray-200'
-                } shadow-lg`}
-              >
-                <div className="p-3 bg-purple-500/20 rounded-lg">
-                  <MapPin className="text-purple-500" size={24} />
+              <div className="flex items-center gap-6 p-6 rounded-2xl glass">
+                <div className="p-4 bg-purple-500/10 rounded-xl">
+                  <MapPin className="text-purple-400" size={24} />
                 </div>
                 <div>
-                  <div className="font-semibold">Location</div>
-                  <div
-                    className={`text-sm ${
-                      darkMode ? 'text-gray-400' : 'text-gray-600'
-                    }`}
-                  >
+                  <div className="font-semibold text-white mb-1">Location</div>
+                  <div className="text-primary-muted">
                     {profile.location}
                   </div>
                 </div>
@@ -164,22 +133,12 @@ const Contact = ({ darkMode }) => {
 
             {/* Availability Status */}
             {profile.available && (
-              <div
-                className={`p-5 rounded-xl border-2 ${
-                  darkMode
-                    ? 'bg-green-900/20 border-green-500/50'
-                    : 'bg-green-50 border-green-500'
-                }`}
-              >
-                <div className="flex items-center gap-2 text-green-500 font-semibold mb-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="p-6 rounded-2xl border border-green-500/20 bg-green-500/5">
+                <div className="flex items-center gap-3 text-green-400 font-semibold mb-2">
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
                   Currently Available
                 </div>
-                <p
-                  className={`text-sm ${
-                    darkMode ? 'text-green-400' : 'text-green-700'
-                  }`}
-                >
+                <p className="text-sm text-green-400/80">
                   {profile.availableMessage}
                 </p>
               </div>
@@ -187,28 +146,19 @@ const Contact = ({ darkMode }) => {
           </div>
 
           {/* Contact Form */}
-          <div className={`${inView ? 'animate-slide-in-right' : 'opacity-0'}`}>
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             <form
               onSubmit={handleSubmit}
-              className={`${
-                darkMode ? 'bg-gray-800' : 'bg-white'
-              } rounded-xl p-8 shadow-xl border ${
-                darkMode ? 'border-gray-700' : 'border-gray-200'
-              }`}
+              className="glass rounded-3xl p-8 md:p-10 border border-white/10"
             >
-              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+              <h3 className="text-2xl font-bold mb-8 text-white">Send a Message</h3>
 
               {status.message && (
                 <div
-                  className={`mb-6 p-4 rounded-lg flex items-start gap-3 ${
-                    status.type === 'success'
-                      ? darkMode
-                        ? 'bg-green-900/30 text-green-400'
-                        : 'bg-green-100 text-green-700'
-                      : darkMode
-                      ? 'bg-red-900/30 text-red-400'
-                      : 'bg-red-100 text-red-700'
-                  }`}
+                  className={`mb-8 p-4 rounded-xl flex items-start gap-3 ${status.type === 'success'
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                    }`}
                 >
                   {status.type === 'success' ? (
                     <CheckCircle size={20} className="flex-shrink-0 mt-0.5" />
@@ -219,16 +169,9 @@ const Contact = ({ darkMode }) => {
                 </div>
               )}
 
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className={`block mb-2 font-medium ${
-                      darkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}
-                  >
-                    Name *
-                  </label>
+                  <label htmlFor="name" className="block mb-2 text-sm font-medium text-primary-muted">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -236,24 +179,13 @@ const Contact = ({ darkMode }) => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                      darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                        : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                    }`}
-                    placeholder="Your name"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all"
+                    placeholder="John Doe"
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="email"
-                    className={`block mb-2 font-medium ${
-                      darkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}
-                  >
-                    Email *
-                  </label>
+                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-primary-muted">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -261,24 +193,13 @@ const Contact = ({ darkMode }) => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                      darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                        : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                    }`}
-                    placeholder="your.email@example.com"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all"
+                    placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="subject"
-                    className={`block mb-2 font-medium ${
-                      darkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}
-                  >
-                    Subject *
-                  </label>
+                  <label htmlFor="subject" className="block mb-2 text-sm font-medium text-primary-muted">Subject</label>
                   <input
                     type="text"
                     id="subject"
@@ -286,48 +207,33 @@ const Contact = ({ darkMode }) => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                      darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                        : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                    }`}
-                    placeholder="Project inquiry / Collaboration / etc."
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all"
+                    placeholder="Project Inquiry"
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className={`block mb-2 font-medium ${
-                      darkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}
-                  >
-                    Message *
-                  </label>
+                  <label htmlFor="message" className="block mb-2 text-sm font-medium text-primary-muted">Message</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="5"
-                    className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all resize-none ${
-                      darkMode
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                        : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                    }`}
-                    placeholder="Tell me about your project or idea..."
+                    rows="4"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all resize-none"
+                    placeholder="Tell me about your project..."
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="w-full px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-xl transition-all font-bold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                 >
                   {loading ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                       Sending...
                     </>
                   ) : (
@@ -338,10 +244,6 @@ const Contact = ({ darkMode }) => {
                   )}
                 </button>
               </div>
-
-              <p className={`mt-4 text-xs text-center ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                Or email me directly at <a href={`mailto:${profile.email}`} className="text-blue-500 hover:underline">{profile.email}</a>
-              </p>
             </form>
           </div>
         </div>
