@@ -10,8 +10,8 @@ export const profile = {
   location: "Tiruchirappalli, Tamil Nadu, India",
 
   // Images - Add these files to your public folder (e.g., public/profile/profile.jpg)
-  profileImage: "/profile/image copy.png", // Photo for Hero section
-  aboutImage: "/profile/image.png",     // Photo for About section
+  profileImage: "/profile/profile.png", // Photo for Hero section
+  aboutImage: "/profile/paper.jpeg",     // Photo for About section
 
   email: "mppragadhishraaj@gmail.com",
   phone: "+91 8056430346",
@@ -31,14 +31,14 @@ Currently, I'm focused on mastering advanced DevOps principles and translating t
     github: "https://github.com/Pragadhishnitt",
     linkedin: "https://www.linkedin.com/in/m-p-pragadhish-raaj-6a6735252/",
     // instagram: "https://instagram.com/[YOUR_USERNAME]", // Uncomment if you want to add Instagram
-    email: "[YOUR_EMAIL]@example.com",
+    email: "mppragadhishraaj@gmail.com",
   },
 
   // Resume - You can use a Google Drive link or place the file in public folder
   // Option 1: Google Drive link (recommended for easy updates)
   // resumeUrl: "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing",
   // Option 2: Local file in public folder
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Resume.pdf",
 
   // Availability
   available: true,
@@ -46,9 +46,9 @@ Currently, I'm focused on mastering advanced DevOps principles and translating t
 
   // Stats
   stats: {
-    projectsCompleted: "3+",
+    projectsCompleted: "5+",
     hackathonsWon: "4",
-    yearsOfCoding: "4",
+    yearsOfCoding: "3",
     technologiesUsed: "10+",
   },
 
@@ -262,35 +262,6 @@ export const notableProjects = [
 // ============================================
 
 export const experience = [
-  // ============================================
-  // ORACLE EXPERIENCE - COMMENTED OUT
-  // To uncomment: Remove the /* and */ around this block
-  // ============================================
-  /*
-  {
-    id: 1,
-    type: "work",
-    company: "Oracle",
-    role: "[YOUR ROLE/POSITION]",
-    location: "[LOCATION / Remote]",
-    startDate: "[Month Year]",
-    endDate: "[Month Year / Present]",
-    current: false,
-
-    description: "[1-2 sentences about what you did at Oracle]",
-
-    highlights: [
-      "[Achievement 1: e.g., Developed feature that improved X by Y%]",
-      "[Achievement 2: e.g., Collaborated with team of Z engineers]",
-      "[Achievement 3: e.g., Learned and implemented ABC technology]"
-    ],
-
-    tech: ["Java", "SQL", "Cloud", "[Other tech you used]"],
-
-    logo: "/logos/oracle.png",
-  },
-  */
-
   {
     id: 2,
     type: "work",
@@ -394,23 +365,7 @@ export const testimonials = [];
 // HACKATHONS & ACHIEVEMENTS
 // ============================================
 
-export const hackathons = [
-  {
-    id: 1,
-    name: "[HACKATHON NAME]",
-    position: "[1st Place / 2nd Place / Winner]",
-    date: "[Month Year]",
-    project: "[PROJECT NAME]",
-    description: "[What you built and why it won]",
-    prize: "$[AMOUNT] / [OTHER PRIZE]",
-    participants: "[X] teams",
-    tech: ["React", "Node.js", "[Other tech]"],
-    links: {
-      project: "https://github.com/[YOUR_USERNAME]/[REPO]",
-      devpost: ""
-    }
-  },
-];
+export const hackathons = [];
 
 // ============================================
 // BLOG POSTS
