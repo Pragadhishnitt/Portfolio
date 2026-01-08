@@ -54,7 +54,7 @@ const Testimonials = () => {
 
               {/* Testimonial Content */}
               <div className="text-center relative z-10">
-                <p className="text-xl md:text-2xl mb-10 font-light text-white leading-relaxed italic">
+                <p className="text-xl md:text-2xl mb-10 font-light text-primary leading-relaxed italic">
                   "{testimonials[currentIndex].text}"
                 </p>
 
@@ -68,14 +68,14 @@ const Testimonials = () => {
                     />
                   )}
                   <div>
-                    <div className="font-bold text-lg text-white flex items-center justify-center gap-2">
+                    <div className="font-bold text-lg text-primary flex items-center justify-center gap-2">
                       {testimonials[currentIndex].name}
                       {testimonials[currentIndex].linkedin && (
                         <a
                           href={testimonials[currentIndex].linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-accent hover:text-white transition-colors"
+                          className="text-accent hover:text-primary transition-colors"
                         >
                           <Linkedin size={16} />
                         </a>
@@ -93,14 +93,14 @@ const Testimonials = () => {
                 <>
                   <button
                     onClick={prevTestimonial}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors backdrop-blur-sm"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-surface hover:bg-primary/10 text-primary transition-colors backdrop-blur-sm"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button
                     onClick={nextTestimonial}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors backdrop-blur-sm"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-surface hover:bg-primary/10 text-primary transition-colors backdrop-blur-sm"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight size={24} />
@@ -116,8 +116,8 @@ const Testimonials = () => {
                       key={index}
                       onClick={() => setCurrentIndex(index)}
                       className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex
-                          ? 'bg-accent w-8'
-                          : 'bg-white/20 w-2 hover:bg-white/40'
+                        ? 'bg-accent w-8'
+                        : 'bg-primary/20 w-2 hover:bg-primary/40'
                         }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
@@ -129,8 +129,8 @@ const Testimonials = () => {
         ) : (
           /* Companies Worked With (placeholder when no testimonials) */
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
-            <div className="glass rounded-3xl p-12 border border-white/10">
-              <h3 className="text-2xl font-bold text-center mb-12 text-white">
+            <div className="glass rounded-3xl p-12 border border-border">
+              <h3 className="text-2xl font-bold text-center mb-12 text-primary">
                 Proud to have worked with
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-items-center">
@@ -139,10 +139,10 @@ const Testimonials = () => {
                     key={index}
                     className="group text-center transition-transform hover:scale-105"
                   >
-                    <div className="text-5xl font-bold mb-3 text-white/20 group-hover:text-accent transition-colors duration-300">
+                    <div className="text-5xl font-bold mb-3 text-primary/20 group-hover:text-accent transition-colors duration-300">
                       {company.company[0]}
                     </div>
-                    <div className="font-semibold text-white mb-1">{company.company}</div>
+                    <div className="font-semibold text-primary mb-1">{company.company}</div>
                     <div className="text-xs text-primary-muted uppercase tracking-wider">
                       {company.role}
                     </div>
@@ -151,7 +151,7 @@ const Testimonials = () => {
               </div>
 
               {/* Add Testimonial Placeholder */}
-              <div className="mt-16 p-8 rounded-2xl border border-dashed border-white/10 text-center bg-white/5">
+              <div className="mt-16 p-8 rounded-2xl border border-dashed border-border text-center bg-surface">
                 <p className="text-primary-muted">
                   Testimonials coming soon! Building relationships and gathering feedback.
                 </p>

@@ -46,7 +46,7 @@ const Hero = () => {
             <img
               src={profile.profileImage}
               alt={profile.name}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/10 mx-auto object-cover shadow-2xl hover:scale-105 transition-transform duration-500"
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary/10 mx-auto object-cover shadow-2xl hover:scale-105 transition-transform duration-500"
             />
           </div>
         )}
@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
 
         {/* Short Bio */}
-        <p className="text-lg md:text-xl mb-12 text-primary-muted max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '300ms' }}>
+        <p className="text-lg md:text-xl mb-12 text-black dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-heading font-light animate-slide-up" style={{ animationDelay: '300ms' }}>
           {profile.shortBio}
         </p>
 
@@ -78,14 +78,14 @@ const Hero = () => {
         <div className="flex flex-wrap gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: '400ms' }}>
           <button
             onClick={() => scrollToSection('projects')}
-            className="group px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-all flex items-center gap-2"
+            className="group px-8 py-3 bg-primary text-background rounded-full font-medium hover:bg-primary/90 transition-all flex items-center gap-2"
           >
             View Work
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="px-8 py-3 border border-white/20 hover:bg-white/5 rounded-full font-medium transition-all"
+            className="px-8 py-3 border border-primary/20 hover:bg-primary/5 rounded-full font-medium transition-all"
           >
             Contact Me
           </button>
@@ -105,7 +105,7 @@ const Hero = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-muted hover:text-white transition-colors transform hover:scale-110"
+                className="text-primary-muted hover:text-primary transition-colors transform hover:scale-110"
                 aria-label={label}
               >
                 <Icon size={24} />
@@ -120,7 +120,7 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <button
         onClick={() => scrollToSection('about')}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-primary-muted hover:text-white transition-colors"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-primary-muted hover:text-primary transition-colors"
         aria-label="Scroll down"
       >
         <ChevronDown size={32} />

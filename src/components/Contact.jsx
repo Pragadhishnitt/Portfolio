@@ -33,7 +33,7 @@ const Contact = () => {
     try {
       // Using Formspree (free service) - replace with your Formspree endpoint
       // Sign up at https://formspree.io/ and get your form endpoint
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/mlgdqonv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className={`space-y-10 ${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Get In Touch</h3>
+              <h3 className="text-2xl font-bold mb-6 text-primary">Get In Touch</h3>
               <p className="text-primary-muted text-lg leading-relaxed mb-8">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
@@ -86,35 +86,35 @@ const Contact = () => {
             <div className="space-y-6">
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-6 p-6 rounded-2xl glass hover:bg-white/5 transition-all group"
+                className="flex items-center gap-6 p-6 rounded-2xl glass hover:bg-surface transition-all group"
               >
                 <div className="p-4 bg-blue-500/10 rounded-xl group-hover:scale-110 transition-transform">
                   <Mail className="text-blue-400" size={24} />
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Email</div>
+                  <div className="font-semibold text-primary mb-1">Email</div>
                   <div className="text-primary-muted group-hover:text-accent transition-colors">
                     {profile.email}
                   </div>
                 </div>
-                <ArrowRight className="ml-auto text-white/20 group-hover:text-white group-hover:translate-x-1 transition-all" size={20} />
+                <ArrowRight className="ml-auto text-primary/20 group-hover:text-primary group-hover:translate-x-1 transition-all" size={20} />
               </a>
 
               {profile.phone && (
                 <a
                   href={`tel:${profile.phone}`}
-                  className="flex items-center gap-6 p-6 rounded-2xl glass hover:bg-white/5 transition-all group"
+                  className="flex items-center gap-6 p-6 rounded-2xl glass hover:bg-surface transition-all group"
                 >
                   <div className="p-4 bg-green-500/10 rounded-xl group-hover:scale-110 transition-transform">
                     <Phone className="text-green-400" size={24} />
                   </div>
                   <div>
-                    <div className="font-semibold text-white mb-1">Phone</div>
+                    <div className="font-semibold text-primary mb-1">Phone</div>
                     <div className="text-primary-muted group-hover:text-accent transition-colors">
                       {profile.phone}
                     </div>
                   </div>
-                  <ArrowRight className="ml-auto text-white/20 group-hover:text-white group-hover:translate-x-1 transition-all" size={20} />
+                  <ArrowRight className="ml-auto text-primary/20 group-hover:text-primary group-hover:translate-x-1 transition-all" size={20} />
                 </a>
               )}
 
@@ -123,7 +123,7 @@ const Contact = () => {
                   <MapPin className="text-purple-400" size={24} />
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Location</div>
+                  <div className="font-semibold text-primary mb-1">Location</div>
                   <div className="text-primary-muted">
                     {profile.location}
                   </div>
@@ -133,12 +133,12 @@ const Contact = () => {
 
             {/* Availability Status */}
             {profile.available && (
-              <div className="p-6 rounded-2xl border border-green-500/20 bg-green-500/5">
-                <div className="flex items-center gap-3 text-green-400 font-semibold mb-2">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="p-6 rounded-2xl border border-green-500/20 bg-green-100 dark:bg-green-500/5">
+                <div className="flex items-center gap-3 text-green-700 dark:text-green-400 font-semibold mb-2">
+                  <div className="w-2.5 h-2.5 bg-green-600 dark:bg-green-500 rounded-full animate-pulse"></div>
                   Currently Available
                 </div>
-                <p className="text-sm text-green-400/80">
+                <p className="text-sm text-green-700/80 dark:text-green-400/80">
                   {profile.availableMessage}
                 </p>
               </div>
@@ -149,15 +149,15 @@ const Contact = () => {
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             <form
               onSubmit={handleSubmit}
-              className="glass rounded-3xl p-8 md:p-10 border border-white/10"
+              className="glass rounded-3xl p-8 md:p-10 border border-border"
             >
-              <h3 className="text-2xl font-bold mb-8 text-white">Send a Message</h3>
+              <h3 className="text-2xl font-bold mb-8 text-primary">Send a Message</h3>
 
               {status.message && (
                 <div
                   className={`mb-8 p-4 rounded-xl flex items-start gap-3 ${status.type === 'success'
-                      ? 'bg-green-500/10 text-green-400 border border-green-500/20'
-                      : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                    ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                    : 'bg-red-500/10 text-red-400 border border-red-500/20'
                     }`}
                 >
                   {status.type === 'success' ? (
@@ -179,8 +179,8 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all"
-                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-surface border border-border text-primary placeholder-gray-300 dark:placeholder-primary/20 placeholder:font-light focus:outline-none focus:border-accent focus:bg-primary/5 transition-all"
+                    placeholder="Pragadhish"
                   />
                 </div>
 
@@ -193,8 +193,8 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all"
-                    placeholder="john@example.com"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-surface border border-border text-primary placeholder-gray-300 dark:placeholder-primary/20 placeholder:font-light focus:outline-none focus:border-accent focus:bg-primary/5 transition-all"
+                    placeholder="pragadhish@example.com"
                   />
                 </div>
 
@@ -207,8 +207,8 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all"
-                    placeholder="Project Inquiry"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-surface border border-border text-primary placeholder-gray-300 dark:placeholder-primary/20 placeholder:font-light focus:outline-none focus:border-accent focus:bg-primary/5 transition-all"
+                    placeholder="Collaboration Opportunity"
                   />
                 </div>
 
@@ -221,19 +221,19 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="4"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-white/10 transition-all resize-none"
-                    placeholder="Tell me about your project..."
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-surface border border-border text-primary placeholder-gray-300 dark:placeholder-primary/20 placeholder:font-light focus:outline-none focus:border-accent focus:bg-primary/5 transition-all resize-none"
+                    placeholder="Hi Pragadhish, I'd like to discuss a project..."
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-xl transition-all font-bold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+                  className="w-full px-8 py-4 bg-primary text-background hover:bg-background hover:text-primary border border-transparent hover:border-primary rounded-xl transition-all font-bold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                 >
                   {loading ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
                       Sending...
                     </>
                   ) : (

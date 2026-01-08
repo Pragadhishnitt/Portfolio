@@ -30,7 +30,7 @@ const Timeline = () => {
         </div>
 
         {/* Timeline */}
-        <div className="relative border-l border-white/10 ml-6 md:ml-12 space-y-16">
+        <div className="relative border-l border-border ml-6 md:ml-12 space-y-16">
           {experience.map((item, index) => {
             const Icon = getIcon(item.type);
 
@@ -44,10 +44,10 @@ const Timeline = () => {
                 {/* Timeline Dot */}
                 <div className="absolute left-[-5px] md:left-[-5px] top-0 w-3 h-3 rounded-full bg-accent ring-4 ring-background" />
 
-                <div className="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                <div className="glass p-8 rounded-2xl hover:bg-surface transition-colors group">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">{item.role}</h3>
+                      <h3 className="text-xl font-bold text-primary mb-1 group-hover:text-accent transition-colors">{item.role}</h3>
                       <div className="text-primary-muted font-medium">
                         {item.company}
                       </div>
@@ -73,7 +73,7 @@ const Timeline = () => {
                       {item.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 rounded-full text-xs bg-white/5 text-primary-muted border border-white/5"
+                          className="px-3 py-1 rounded-full text-xs bg-surface text-primary-muted border border-border"
                         >
                           {tech}
                         </span>

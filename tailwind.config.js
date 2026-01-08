@@ -4,7 +4,6 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -12,18 +11,16 @@ export default {
         heading: ['Outfit', 'sans-serif'],
       },
       colors: {
-        // Elite Dark Mode Palette
-        background: '#0a0a0a', // Rich Black
-        surface: '#121212',    // Slightly lighter black
+        background: 'rgb(var(--color-background))',
+        surface: 'rgb(var(--color-surface))',
         primary: {
-          DEFAULT: '#fafafa',  // Almost white for high contrast text
-          muted: '#a1a1aa',    // Zinc 400 for secondary text
+          DEFAULT: 'rgb(var(--color-primary))',
+          muted: 'rgb(var(--color-muted))',
         },
         accent: {
-          DEFAULT: '#3b82f6',  // Keep a subtle blue accent, but use sparingly
-          glow: 'rgba(59, 130, 246, 0.5)',
+          DEFAULT: 'rgb(var(--color-accent))',
         },
-        border: '#27272a',     // Zinc 800 for subtle borders
+        border: 'rgb(var(--color-border))',
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',
@@ -44,10 +41,6 @@ export default {
           '0%': { transform: 'translateX(20px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)',
       },
     },
   },

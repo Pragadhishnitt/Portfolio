@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: 'Timeline', href: '#timeline' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -48,9 +49,12 @@ const Navbar = () => {
             {/* Logo */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="text-xl font-heading font-bold tracking-tighter hover:text-white transition-colors"
+              className="relative group"
             >
-              PR
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-purple-600 rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative flex items-center justify-center w-10 h-10 bg-background rounded-lg border border-white/10">
+                <span className="font-heading font-bold text-xl text-primary">PR</span>
+              </div>
             </button>
 
             {/* Desktop Navigation */}
@@ -59,16 +63,24 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-primary-muted hover:text-white transition-colors"
+                  className="text-sm font-medium text-primary-muted hover:text-primary transition-colors"
                 >
                   {item.name}
                 </button>
               ))}
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full bg-primary text-background text-sm font-medium hover:bg-primary/90 transition-colors"
+              >
+                Resume
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-primary-muted hover:text-white transition-colors"
+              className="md:hidden p-2 text-primary-muted hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -86,7 +98,7 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-2xl font-heading font-medium text-primary-muted hover:text-white transition-colors"
+                className="text-2xl font-heading font-medium text-primary-muted hover:text-primary transition-colors"
               >
                 {item.name}
               </button>

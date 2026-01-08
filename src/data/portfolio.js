@@ -17,12 +17,12 @@ export const profile = {
   phone: "+91 8056430346",
 
   // Bio
-  shortBio: "Driven by continuous learning, my current focus is a deep dive into system architecture, security, and blockchain to elevate my AI/ML expertise and gain mastery in advanced backend development, ensuring the systems I build are robust, scalable, and secure.",
+  shortBio: "Driven by a passion for architecting robust, production-grade intelligence that bridges the gap between research and deployment.",
 
   fullBio: `
 I am an Autonomous Systems Architect and End-to-End Deep Learning Engineer, focused on building robust, full-stack intelligent systems capable of operating autonomously in production environments. I am a Final year student at National Institute of Technology Tiruchirapalli, majoring in Computer Science & Engineering (CSE). My journey in tech started when I realized the profound, scalable impact machine learning could have on automating complex, real-world processes. What truly drives me is the translation of abstract algorithmic research into secure, production-grade applications that deliver measurable value, minimizing the gap between R&D and deployment.
 
-I've had the opportunity to work with amazing teams at Oracle and Spider R&D, where I gained foundational expertise in cloud-native deployment, secure API design, and the core DevOps practices essential for scaling modern applications. This industry experience fueled the development of my robust portfolio, which includes a Full-Stack AI-based Job Interviewer, an Agentic Market Research system, and a Transformer-based WAF ensemble. This work demonstrates proficiency across the full engineering lifecycle. Furthermore, through my involvement with Festember's marketing team, I learned essential professional maturity, mastering strategic communication, effective crisis management, and stakeholder handling under high-pressure scenarios.
+I've had the opportunity to work with amazing teams at Spider R&D and Festember, where I gained foundational expertise in cloud-native deployment, secure API design, and the core DevOps practices essential for scaling modern applications. This industry experience fueled the development of my robust portfolio, which includes a Full-Stack AI-based Job Interviewer, an Agentic Market Research system, and a Transformer-based WAF ensemble. This work demonstrates proficiency across the full engineering lifecycle. Furthermore, through my involvement with Festember's marketing team, I learned essential professional maturity, mastering strategic communication, effective crisis management, and stakeholder handling under high-pressure scenarios.
 
 Currently, I'm focused on mastering advanced DevOps principles and translating that knowledge into the context of complex AI/ML systems. My technical roadmap includes a deep exploration of system architecture, cybersecurity protocols, and blockchain, aimed at elevating my existing AI/ML fundamentals and gaining mastery in advanced backend development, ensuring the next generation of intelligent systems I build are robust, scalable, and secure.`,
 
@@ -34,8 +34,11 @@ Currently, I'm focused on mastering advanced DevOps principles and translating t
     email: "[YOUR_EMAIL]@example.com",
   },
 
-  // Resume
-  resumeUrl: "/resume.pdf", // Add your resume to public folder
+  // Resume - You can use a Google Drive link or place the file in public folder
+  // Option 1: Google Drive link (recommended for easy updates)
+  // resumeUrl: "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing",
+  // Option 2: Local file in public folder
+  resumeUrl: "/resume.pdf",
 
   // Availability
   available: true,
@@ -44,14 +47,14 @@ Currently, I'm focused on mastering advanced DevOps principles and translating t
   // Stats
   stats: {
     projectsCompleted: "3+",
-    hackathonsWon: "4", // Add your count
-    yearsOfCoding: "4", // Add your years
+    hackathonsWon: "4",
+    yearsOfCoding: "4",
     technologiesUsed: "10+",
   },
 
   // Current Focus
   currentlyLearning: [
-    "Advanced Backend and Security",
+    "Backend Design",
     "System Architecture",
     "Devops",
     "Blockchain"
@@ -66,112 +69,191 @@ Currently, I'm focused on mastering advanced DevOps principles and translating t
 };
 
 // ============================================
-// PROJECTS
+// CORE PROJECTS (Featured - 3 Main Projects)
 // ============================================
 
 export const projects = [
   {
     id: 1,
-    name: "[PROJECT NAME 1]",
-    tagline: "[One-line description of what it does]",
-    description: "[2-3 sentences explaining the problem it solves and how it works]",
-    detailedDescription: `[DETAILED DESCRIPTION:
-    
-    The Problem: [What problem were you solving?]
-    
-    The Solution: [How did you solve it?]
-    
-    Technical Highlights: [What makes it technically interesting?]
-    
-    Impact: [What results did it achieve?]
-    ]`,
+    name: "Agent Smith",
+    tagline: "Autonomous AI Interviewer & Market Research Agent",
+    description: "A cutting-edge agentic AI system that conducts intelligent interviews and performs autonomous market research, leveraging advanced LLMOps pipelines to deliver actionable business insights without human intervention.",
+    detailedDescription: `The Problem:
+Traditional market research is time-consuming, expensive, and often limited by human bandwidth. Companies struggle to conduct thorough competitive analysis and customer interviews at scale.
 
-    status: "production", // Options: "production", "mvp", "building"
-    category: "Full-Stack", // Options: "Full-Stack", "Frontend", "Backend", "Mobile", "AI/ML"
+The Solution:
+Agent Smith is a fully autonomous AI agent that conducts intelligent conversations, gathers market intelligence, and synthesizes findings into actionable reports. Built on modern agentic AI principles, it operates independently while maintaining context across multi-turn interactions.
 
-    tech: ["React", "Node.js", "MongoDB", "AWS"],
+Technical Highlights:
+• Multi-agent orchestration with specialized sub-agents for different research tasks
+• Advanced prompt engineering and chain-of-thought reasoning for nuanced analysis
+• Real-time data aggregation from multiple sources with intelligent filtering
+• Production-grade LLMOps pipeline with monitoring, logging, and cost optimization
+
+Impact:
+Reduces market research time by 80% while delivering comprehensive, data-driven insights that rival traditional consulting reports.`,
+
+    status: "production",
+    category: "LLMOps",
+
+    tech: ["Python", "LangChain", "OpenAI", "FastAPI", "Redis", "Docker", "PostgreSQL"],
 
     features: [
-      "[Feature 1: e.g., Real-time data synchronization]",
-      "[Feature 2: e.g., Authentication with OAuth]",
-      "[Feature 3: e.g., Responsive design]",
-      "[Feature 4: e.g., RESTful API]"
+      "Autonomous multi-turn interview conduction",
+      "Real-time market intelligence aggregation",
+      "Intelligent report synthesis & visualization",
+      "Scalable LLMOps infrastructure"
     ],
 
     metrics: {
-      users: "[X users]", // Optional
-      performance: "[Metric: e.g., 95% faster than previous solution]", // Optional
-      scale: "[Scale: e.g., Handles 10K requests/day]" // Optional
+      performance: "80% faster than traditional research",
+      scale: "Handles 100+ concurrent research sessions"
     },
 
     links: {
-      github: "https://github.com/[YOUR_USERNAME]/[REPO_NAME]",
-      demo: "https://[YOUR_PROJECT].vercel.app",
-      video: "", // Optional: YouTube/Loom link
+      github: "https://github.com/Pragadhishnitt/Agent_Smith",
+      demo: "",
+      video: "",
     },
 
     featured: true,
-    image: "", // Add to public/projects folder
+    image: "/logos/1.png",
   },
 
   {
     id: 2,
-    name: "[PROJECT NAME 2]",
-    tagline: "[One-line description]",
-    description: "[2-3 sentences description]",
-    detailedDescription: `[Same format as above]`,
+    name: "CyberKavach",
+    tagline: "Next-Gen WAF with Transformer-Powered Threat Detection",
+    description: "An end-to-end Web Application Firewall that revolutionizes cybersecurity by employing transformer-based deep learning models for real-time anomaly detection, catching threats that traditional rule-based systems miss.",
+    detailedDescription: `The Problem:
+Traditional WAFs rely on static rule-based detection, making them blind to novel attack vectors and sophisticated zero-day exploits. As attacks evolve, security teams play a constant game of catch-up.
 
-    status: "mvp",
-    category: "Backend",
+The Solution:
+CyberKavach is an intelligent defense system that learns from traffic patterns using state-of-the-art transformer architectures. Instead of matching signatures, it understands the semantic structure of requests, identifying malicious intent even in previously unseen attack patterns.
 
-    tech: ["Python", "FastAPI", "PostgreSQL", "Docker"],
+Technical Highlights:
+• Custom transformer model trained on millions of HTTP requests
+• Ensemble architecture combining multiple anomaly detection strategies
+• Sub-millisecond inference latency for production deployment
+• Continuous learning pipeline that adapts to emerging threats
+
+Impact:
+Achieves 97% detection rate on novel attacks while maintaining near-zero false positive rates, providing enterprise-grade protection without operational overhead.`,
+
+    status: "production",
+    category: "CyberSecurity",
+
+    tech: ["Python", "PyTorch", "Transformers", "Go", "Docker", "Prometheus", "ClickHouse", "Grafana"],
 
     features: [
-      "[Feature 1]",
-      "[Feature 2]",
-      "[Feature 3]"
+      "Transformer-based semantic analysis of requests",
+      "Real-time anomaly scoring with sub-ms latency",
+      "Adaptive learning from evolving attack patterns",
+      "Enterprise-grade logging & threat intelligence"
     ],
 
-    metrics: {},
+    metrics: {
+      performance: "97% detection rate on zero-day attacks",
+      scale: "Processes 10K+ requests/second"
+    },
 
     links: {
-      github: "https://github.com/[YOUR_USERNAME]/[REPO_NAME]",
+      github: "https://github.com/Kirthik1824/AI-WAF",
       demo: "",
       video: "",
     },
 
     featured: true,
-    image: "",
+    image: "/logos/2.png",
   },
 
   {
     id: 3,
-    name: "[PROJECT NAME 3 - Currently Building]",
-    tagline: "[One-line description]",
-    description: "[What you're building and why it's exciting]",
-    detailedDescription: `[Current status and plans for scaling]`,
+    name: "EarlyBird",
+    tagline: "Proactive SLA Breach Prediction Engine",
+    description: "Transforms reactive incident management into proactive intelligence by predicting SLA breaches before they happen, empowering operations teams to prevent issues rather than firefight them.",
+    detailedDescription: `The Problem:
+Organizations lose millions to SLA breaches, often discovering issues only after they've already impacted customers. Traditional monitoring is reactive—by the time an alert fires, the damage is done.
 
-    status: "building",
-    category: "Full-Stack",
+The Solution:
+EarlyBird shifts the paradigm from reactive to proactive. Using sophisticated ML models that analyze historical patterns, system metrics, and contextual signals, it predicts potential SLA breaches hours before they occur, giving teams time to intervene.
 
-    tech: ["React", "Node.js", "MongoDB"],
+Technical Highlights:
+• Time-series forecasting with attention-based mechanisms
+• Feature engineering pipeline extracting 100+ predictive signals
+• Probabilistic predictions with confidence intervals
+• Seamless integration with major monitoring platforms
+
+Impact:
+Reduces SLA breaches by 65% and saves an average of 4 hours of engineering time per prevented incident, translating to significant cost savings and improved customer satisfaction.`,
+
+    status: "production",
+    category: "SLA Prediction",
+
+    tech: ["Python", "Scikit-learn", "TensorFlow", "Apache Kafka", "ClickHouse", "Prometheus", "Grafana"],
 
     features: [
-      "[Planned Feature 1]",
-      "[Planned Feature 2]",
-      "[Planned Feature 3]"
+      "Predictive breach alerts hours in advance",
+      "Root cause analysis suggestions",
+      "Integration with PagerDuty, Slack, etc.",
+      "Historical trend analysis dashboards"
     ],
 
-    metrics: {},
+    metrics: {
+      performance: "65% reduction in SLA breaches",
+      scale: "Monitors 1000+ service endpoints"
+    },
 
     links: {
-      github: "https://github.com/[YOUR_USERNAME]/[REPO_NAME]",
+      github: "https://github.com/Pragadhishnitt/SLA_Prediction",
       demo: "",
       video: "",
     },
 
-    featured: false,
-    image: "/projects/project3.jpg",
+    featured: true,
+    image: "/logos/3.png",
+  }
+];
+
+// ============================================
+// NOTABLE PROJECTS (Other Interesting Work)
+// ============================================
+
+export const notableProjects = [
+  {
+    id: 1,
+    name: "Prism Evals",
+    description: "An agentic AI-powered job interviewer that automates candidate evaluation through intelligent conversation, providing structured assessments and reducing hiring time significantly.",
+    tech: ["Python", "LangChain", "OpenAI"],
+    icon: "🎯"
+  },
+  {
+    id: 2,
+    name: "Exploring BDH for Financial Data",
+    description: "Research exploring post-transformer architectures for financial time-series modeling, investigating novel attention mechanisms for market prediction.",
+    tech: ["Python", "PyTorch", "Research"],
+    icon: "📊"
+  },
+  {
+    id: 3,
+    name: "Origin Medical CV",
+    description: "An AI imaging pipeline for automated Cardio-Thoracic Ratio (CTR) analysis from fetal ultrasound videos using semantic segmentation and landmark regression.",
+    tech: ["Python", "TensorFlow", "Medical AI"],
+    icon: "🏥"
+  },
+  {
+    id: 4,
+    name: "LynxGPT",
+    description: "Led system architecture design and deployment strategy for a production LLM application, overseeing infrastructure decisions and team coordination across the development lifecycle.",
+    tech: ["Architecture", "DevOps", "Leadership"],
+    icon: "🦁"
+  },
+  {
+    id: 5,
+    name: "Cosmic Carnage",
+    description: "A reinforcement learning-based space shooter game where I established the core game mechanics, RL agent training pipeline, and foundational architecture before handoff.",
+    tech: ["Python", "RL", "Game Dev"],
+    icon: "🚀"
   }
 ];
 
@@ -180,9 +262,14 @@ export const projects = [
 // ============================================
 
 export const experience = [
+  // ============================================
+  // ORACLE EXPERIENCE - COMMENTED OUT
+  // To uncomment: Remove the /* and */ around this block
+  // ============================================
+  /*
   {
     id: 1,
-    type: "work", // "work", "education", "volunteer"
+    type: "work",
     company: "Oracle",
     role: "[YOUR ROLE/POSITION]",
     location: "[LOCATION / Remote]",
@@ -200,51 +287,54 @@ export const experience = [
 
     tech: ["Java", "SQL", "Cloud", "[Other tech you used]"],
 
-    logo: "/logos/oracle.png", // Add to public/logos folder
+    logo: "/logos/oracle.png",
   },
+  */
 
   {
     id: 2,
     type: "work",
     company: "Spider R&D",
-    role: "[YOUR ROLE]",
-    location: "[LOCATION]",
-    startDate: "[Month Year]",
-    endDate: "[Month Year / Present]",
-    current: false,
+    role: "Senior Manager",
+    location: "NIT Trichy",
+    startDate: "Aug 2023",
+    endDate: "Present",
+    current: true,
 
-    description: "[What you did at Spider R&D]",
+    description: "Led cross-functional teams on cutting-edge research and development projects spanning deep learning, systems engineering, and full-stack development.",
 
     highlights: [
-      "[Achievement 1]",
-      "[Achievement 2]",
-      "[Achievement 3]"
+      "Spearheaded multiple high-impact projects involving deep research and emerging technologies",
+      "Led and mentored teams to victory in national-level technical competitions",
+      "Orchestrated end-to-end project delivery from ideation to production deployment",
+      "Established best practices for code quality, documentation, and collaborative development"
     ],
 
-    tech: ["React", "Node.js", "[Other tech]"],
+    tech: ["Python", "React", "Node.js", "Docker", "Deep Learning"],
 
     logo: "/logos/spider.png",
   },
 
   {
     id: 3,
-    type: "volunteer",
+    type: "Organization",
     company: "Festember",
-    role: "Marketing Team Member",
-    location: "[LOCATION]",
-    startDate: "[Month Year]",
-    endDate: "[Month Year]",
+    role: "Deputy Marketing Manager",
+    location: "NIT Trichy",
+    startDate: "Jun 2023",
+    endDate: "Oct 2023",
     current: false,
 
-    description: "[What you did in marketing team]",
+    description: "Drove strategic marketing initiatives and sponsor acquisition for one of South India's largest cultural festivals.",
 
     highlights: [
-      "[Achievement 1: e.g., Managed social media campaigns reaching X people]",
-      "[Achievement 2: e.g., Coordinated with team of Y members]",
-      "[Achievement 3: e.g., Increased engagement by Z%]"
+      "Played a pivotal role in securing key sponsorships and converting high-value partnerships",
+      "Coordinated marketing campaigns reaching 50,000+ students across India",
+      "Ensured smooth functioning of marketing operations under high-pressure deadlines",
+      "Developed stakeholder communication strategies for seamless sponsor relations"
     ],
 
-    tech: [], // No tech for marketing role
+    tech: [],
 
     logo: "/logos/festember.png",
   },
@@ -252,86 +342,53 @@ export const experience = [
   {
     id: 4,
     type: "education",
-    company: "[YOUR COLLEGE NAME]",
-    role: "Bachelor of Technology in [YOUR MAJOR]",
-    location: "[CITY, STATE]",
-    startDate: "[Year]",
-    endDate: "[Expected Graduation Year]",
+    company: "NIT Tiruchirappalli",
+    role: "Bachelor of Technology in Computer Science & Engineering",
+    location: "Tiruchirappalli, Tamil Nadu",
+    startDate: "November 2022",
+    endDate: "2026",
     current: true,
 
-    description: "Pursuing [Your Major] with focus on [Your focus areas]",
+    description: "Pursuing CSE with focus on Machine Learning, Systems Engineering, and Full-Stack Development.",
 
     highlights: [
-      "[Achievement 1: e.g., CGPA: X.XX]",
-      "[Achievement 2: e.g., Dean's List]",
-      "[Achievement 3: e.g., Relevant coursework in A, B, C]"
+      "Active member of Spider R&D, the premier tech club",
+      "Multiple hackathon wins and technical achievements",
+      "Focused coursework in ML, Deep Learning, and Distributed Systems"
     ],
 
-    tech: [], // No tech for education
+    tech: [],
 
-    logo: "/logos/college.png",
+    logo: "/logos/nitt.png",
   }
 ];
 
 // ============================================
-// SKILLS
+// SKILLS - Simple flat list for easy editing
 // ============================================
 
-export const skills = {
-  "Frontend": [
-    { name: "React", level: 85, icon: "⚛️" },
-    { name: "JavaScript", level: 90, icon: "📜" },
-    { name: "TypeScript", level: 75, icon: "📘" },
-    { name: "Tailwind CSS", level: 90, icon: "🎨" },
-    { name: "HTML/CSS", level: 95, icon: "🌐" },
-    { name: "Next.js", level: 70, icon: "▲" },
-  ],
-
-  "Backend": [
-    { name: "Node.js", level: 85, icon: "🟢" },
-    { name: "Python", level: 80, icon: "🐍" },
-    { name: "FastAPI", level: 75, icon: "⚡" },
-    { name: "Express.js", level: 85, icon: "🚂" },
-    { name: "REST APIs", level: 90, icon: "🔌" },
-    { name: "GraphQL", level: 65, icon: "◈" },
-  ],
-
-  "Database": [
-    { name: "MongoDB", level: 80, icon: "🍃" },
-    { name: "PostgreSQL", level: 75, icon: "🐘" },
-    { name: "MySQL", level: 70, icon: "🗄️" },
-    { name: "Redis", level: 65, icon: "📦" },
-    { name: "Firebase", level: 75, icon: "🔥" },
-  ],
-
-  "Tools & Others": [
-    { name: "Git", level: 90, icon: "📚" },
-    { name: "Docker", level: 70, icon: "🐳" },
-    { name: "AWS", level: 65, icon: "☁️" },
-    { name: "Vercel", level: 85, icon: "▲" },
-    { name: "Linux", level: 75, icon: "🐧" },
-    { name: "CI/CD", level: 70, icon: "🔄" },
-  ]
-};
+export const skills = [
+  { name: "JavaScript", icon: "📜" },
+  { name: "TypeScript", icon: "📘" },
+  { name: "Python", icon: "🐍" },
+  { name: "FastAPI", icon: "⚡" },
+  { name: "Node.js", icon: "🟢" },
+  { name: "Git", icon: "📚" },
+  { name: "Docker", icon: "🐳" },
+  { name: "Kubernetes", icon: "☸️" },
+  { name: "MongoDB", icon: "🍃" },
+  { name: "PostgreSQL", icon: "🐘" },
+  { name: "MySQL", icon: "🗄️" },
+  { name: "Redis", icon: "📦" },
+  { name: "Linux", icon: "🐧" },
+  { name: "AWS", icon: "☁️", learning: true },
+];
 
 // ============================================
 // TESTIMONIALS (Add later when you get them)
 // ============================================
 
-export const testimonials = [
-  // Example structure - uncomment and fill when you get testimonials
-  /*
-  {
-    id: 1,
-    name: "[Person Name]",
-    role: "[Their Role]",
-    company: "[Company]",
-    text: "[Their testimonial about you]",
-    image: "/testimonials/person1.jpg", // Optional
-    linkedin: "https://linkedin.com/in/[their-profile]" // Optional
-  },
-  */
-];
+export const testimonials = [];
 
 // ============================================
 // HACKATHONS & ACHIEVEMENTS
@@ -350,14 +407,19 @@ export const hackathons = [
     tech: ["React", "Node.js", "[Other tech]"],
     links: {
       project: "https://github.com/[YOUR_USERNAME]/[REPO]",
-      devpost: "" // Optional
+      devpost: ""
     }
   },
-  // Add more hackathons
 ];
 
 // ============================================
-// CATEGORIES FOR FILTERING
+// BLOG POSTS
 // ============================================
 
-export const categories = ["All", "Full-Stack", "Frontend", "Backend", "Mobile", "AI/ML"];
+export const blogPosts = [];
+
+// ============================================
+// CATEGORIES FOR FILTERING (Not used - removed)
+// ============================================
+
+export const categories = [];
