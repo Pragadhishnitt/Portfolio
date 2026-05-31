@@ -20,11 +20,11 @@ export const profile = {
   shortBio: "Driven by a passion for architecting robust, production-grade intelligence that bridges the gap between research and deployment.",
 
   fullBio: `
-I am an Autonomous Systems Architect and End-to-End Deep Learning Engineer, focused on building robust, full-stack intelligent systems capable of operating autonomously in production environments. I am a Final year student at National Institute of Technology Tiruchirapalli, majoring in Computer Science & Engineering (CSE). My journey in tech started when I realized the profound, scalable impact machine learning could have on automating complex, real-world processes. What truly drives me is the translation of abstract algorithmic research into secure, production-grade applications that deliver measurable value, minimizing the gap between R&D and deployment.
+I am an Autonomous Systems Architect and End-to-End Deep Learning Engineer, focused on building robust, full-stack intelligent systems. Currently a Final year CSE student at National Institute of Technology Tiruchirapalli, I am driven by the translation of abstract algorithmic research into secure, production-grade applications that deliver measurable value.
 
-I've had the opportunity to work with amazing teams at Spider R&D and Festember, where I gained foundational expertise in cloud-native deployment, secure API design, and the core DevOps practices essential for scaling modern applications. This industry experience fueled the development of my robust portfolio, which includes a Full-Stack AI-based Job Interviewer, an Agentic Market Research system, and a Transformer-based WAF ensemble. This work demonstrates proficiency across the full engineering lifecycle. Furthermore, through my involvement with Festember's marketing team, I learned essential professional maturity, mastering strategic communication, effective crisis management, and stakeholder handling under high-pressure scenarios.
+During my last semester, I co-founded <a href="https://inqor.ai" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-medium">inqor.ai</a> with friends, architecting an AI-powered market research platform from the ground up. This, alongside my work at Spider R&D and Festember, has provided me with deep expertise in cloud-native deployment, secure API design, and the core DevOps practices essential for scaling modern applications.
 
-Currently, I'm focused on mastering advanced DevOps principles and translating that knowledge into the context of complex AI/ML systems. My technical roadmap includes a deep exploration of system architecture, cybersecurity protocols, and blockchain, aimed at elevating my existing AI/ML fundamentals and gaining mastery in advanced backend development, ensuring the next generation of intelligent systems I build are robust, scalable, and secure.`,
+My technical roadmap includes a deep exploration of system architecture, cybersecurity protocols, and blockchain, aimed at elevating my AI fundamentals and ensuring the next generation of intelligent systems I build are robust, scalable, and secure. Beyond the screen, I am a strategic thinker and an avid chess player, always looking for the next challenging move.`,
 
   // Social Links
   social: {
@@ -46,9 +46,9 @@ Currently, I'm focused on mastering advanced DevOps principles and translating t
 
   // Stats
   stats: {
-    projectsCompleted: "5+",
-    hackathonsWon: "4",
-    yearsOfCoding: "3",
+    projectsCompleted: "10+",
+    hackathonsWon: "5",
+    yearsOfCoding: "4",
     technologiesUsed: "10+",
   },
 
@@ -263,14 +263,39 @@ export const notableProjects = [
 
 export const experience = [
   {
+    id: 1,
+    type: "work",
+    company: "Inqor.ai",
+    role: "Founding Engineer",
+    location: "Remote",
+    startDate: "Dec 2025",
+    endDate: "Apr 2026",
+    current: false,
+    website: "https://inqor.ai",
+
+    description: "Co-founded and engineered an AI-powered market research platform that automates qualitative interviews at scale using LLM agents — from core AI engine to distributed backend architecture.",
+
+    highlights: [
+      "Built the core AI engine: LLM-based agent orchestration pipeline for autonomous interview conduction, covering pre-interview setup, live multi-turn conversation management, and post-interview analysis",
+      "Resolved critical data race conditions in concurrent interview sessions, ensuring reliable operation under production load on AWS ECS",
+      "Designed the distributed backend in NestJS with async microservices and scalable APIs for concurrent AI interview orchestration",
+      "Co-architected the full system design and data flow across the platform alongside the founding team"
+    ],
+
+    tech: ["Python", "NestJS", "LangGraph", "AWS ECS", "Docker", "Redis", "PostgreSQL", "FastAPI"],
+
+    logo: "/logos/inqor.png",
+  },
+
+  {
     id: 2,
     type: "work",
     company: "Spider R&D",
     role: "Senior Manager",
     location: "NIT Trichy",
     startDate: "Aug 2023",
-    endDate: "Present",
-    current: true,
+    endDate: "Feb 2026",
+    current: false,
 
     description: "Led cross-functional teams on cutting-edge research and development projects spanning deep learning, systems engineering, and full-stack development.",
 
@@ -317,8 +342,8 @@ export const experience = [
     role: "Bachelor of Technology in Computer Science & Engineering",
     location: "Tiruchirappalli, Tamil Nadu",
     startDate: "November 2022",
-    endDate: "2026",
-    current: true,
+    endDate: "Jul 2026",
+    current: false,
 
     description: "Pursuing CSE with focus on Machine Learning, Systems Engineering, and Full-Stack Development.",
 
@@ -352,6 +377,8 @@ export const skills = [
   { name: "MySQL", icon: "🗄️" },
   { name: "Redis", icon: "📦" },
   { name: "Linux", icon: "🐧" },
+  { name: "Java", icon: "☕" },
+  { name: "SpringBoot", icon: "🌱" },
   { name: "AWS", icon: "☁️", learning: true },
 ];
 

@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
 
         {/* Short Bio */}
-        <p className="text-lg md:text-xl mb-12 text-black dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-heading font-light animate-slide-up" style={{ animationDelay: '300ms' }}>
+        <p className="text-lg md:text-xl mb-12 text-primary max-w-2xl mx-auto leading-relaxed font-heading font-light animate-slide-up" style={{ animationDelay: '300ms' }}>
           {profile.shortBio}
         </p>
 

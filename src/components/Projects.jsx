@@ -19,6 +19,23 @@ const Projects = () => {
     return badges[status] || badges.production;
   };
 
+  const getCategoryStyle = (category) => {
+    const map = {
+      'LLMOps':        { color: '#a78bfa', glow: 'rgba(167,139,250,0.4)', label: 'LLMOPS' },
+      'CyberSecurity': { color: '#22d3ee', glow: 'rgba(34,211,238,0.4)',  label: 'CYBERSECURITY' },
+      'SLA Prediction':{ color: '#fb923c', glow: 'rgba(251,146,60,0.4)', label: 'SLA PREDICTION' },
+    };
+    const style = map[category] || { color: '#60a5fa', glow: 'rgba(96,165,250,0.3)', label: category?.toUpperCase() };
+    return {
+      color: style.color,
+      textShadow: `0 0 12px ${style.glow}`,
+      fontWeight: 700,
+      letterSpacing: '0.12em',
+      fontSize: '0.7rem',
+      label: style.label,
+    };
+  };
+
   // Format detailed description with proper line breaks
   const formatDescription = (text) => {
     return text.split('\n').map((line, i) => {
@@ -103,7 +120,12 @@ const Projects = () => {
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent">
                     <div className="flex justify-between items-end">
                       <div>
-                        <div className="text-xs font-medium text-blue-500 dark:text-blue-400 mb-2 uppercase tracking-wider">{project.category}</div>
+                        <div
+                          className="mb-2 uppercase tracking-wider"
+                          style={getCategoryStyle(project.category)}
+                        >
+                          {getCategoryStyle(project.category).label}
+                        </div>
                         <h3 className="text-2xl font-bold text-primary group-hover:text-accent transition-colors">{project.name}</h3>
                       </div>
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all">
@@ -196,7 +218,12 @@ const Projects = () => {
                 {/* Header */}
                 <div className="flex justify-between items-start mb-8">
                   <div>
-                    <div className="text-xs font-medium text-blue-500 dark:text-blue-400 mb-2 uppercase tracking-wider">{selectedProject.category}</div>
+                    <div
+                      className="mb-2 uppercase tracking-wider"
+                      style={getCategoryStyle(selectedProject.category)}
+                    >
+                      {getCategoryStyle(selectedProject.category).label}
+                    </div>
                     <h3 className="text-3xl md:text-4xl font-heading font-bold mb-2 text-primary">{selectedProject.name}</h3>
                     <p className="text-xl text-primary-muted font-light">
                       {selectedProject.tagline}

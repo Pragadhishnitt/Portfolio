@@ -137,10 +137,21 @@ const Testimonials = () => {
                 {companies.map((company, index) => (
                   <div
                     key={index}
-                    className="group text-center transition-transform hover:scale-105"
+                    className="group flex flex-col items-center text-center transition-transform hover:scale-105"
                   >
-                    <div className="text-5xl font-bold mb-3 text-primary/20 group-hover:text-accent transition-colors duration-300">
-                      {company.company[0]}
+                    <div className="w-16 h-16 rounded-2xl bg-white dark:bg-zinc-900 border border-border flex items-center justify-center overflow-hidden mb-4 shadow-md group-hover:border-accent transition-colors duration-300">
+                      {company.logo ? (
+                        <img 
+                          src={company.logo} 
+                          alt={company.company} 
+                          className="w-full h-full object-contain p-2" 
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <span className="text-3xl font-bold text-primary/30">{company.company[0]}</span>
+                      )}
                     </div>
                     <div className="font-semibold text-primary mb-1">{company.company}</div>
                     <div className="text-xs text-primary-muted uppercase tracking-wider">

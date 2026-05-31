@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Code, Zap, Users, Target } from 'lucide-react';
+import { Code, Zap, Users, Target, Rocket, ExternalLink } from 'lucide-react';
 import { profile } from '../data/portfolio';
 
 const About = () => {
@@ -52,8 +52,26 @@ const About = () => {
             </h3>
             <div className="space-y-6 text-primary-muted text-lg leading-relaxed">
               {profile.fullBio.split('\n\n').map((paragraph, index) => (
-                <p key={index}>{paragraph.trim()}</p>
+                <p key={index} dangerouslySetInnerHTML={{ __html: paragraph.trim() }} />
               ))}
+            </div>
+
+            {/* Currently Learning */}
+            <div className="mt-12">
+              <h4 className="font-semibold mb-4 flex items-center gap-2 text-primary">
+                <Zap className="text-yellow-500" size={20} />
+                Currently Exploring
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {profile.currentlyLearning.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-1.5 rounded-full text-sm bg-yellow-100 dark:bg-yellow-500/10 text-yellow-700 dark:text-yellow-500 border border-yellow-500/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -92,23 +110,6 @@ const About = () => {
               })}
             </div>
 
-            {/* Currently Learning */}
-            <div className="mt-12">
-              <h4 className="font-semibold mb-4 flex items-center gap-2 text-primary">
-                <Zap className="text-yellow-500" size={20} />
-                Currently Exploring
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {profile.currentlyLearning.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-1.5 rounded-full text-sm bg-yellow-100 dark:bg-yellow-500/10 text-yellow-700 dark:text-yellow-500 border border-yellow-500/20"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 

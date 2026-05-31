@@ -68,7 +68,7 @@ const Blog = () => {
                         ))}
                     </div>
                 ) : (
-                    /* Coming Soon State */
+                    /* External Blog Redirect */
                     <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '100ms' }}>
                         <div className="glass rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
                             {/* Background decoration */}
@@ -76,22 +76,26 @@ const Blog = () => {
                                 <PenTool size={300} strokeWidth={0.5} />
                             </div>
 
+                            {/* Subtle gradient accent */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1 rounded-full"
+                                style={{ background: 'linear-gradient(90deg, transparent, rgb(var(--color-accent)), transparent)' }} />
+
                             <div className="relative z-10">
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
                                     <Sparkles size={16} />
-                                    Coming Soon
+                                    Engineering Blog
                                 </div>
 
                                 <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
-                                    Blog Posts in the Works
+                                    Thoughts & Deep Dives
                                 </h3>
 
                                 <p className="text-primary-muted max-w-lg mx-auto text-lg leading-relaxed mb-8">
-                                    I'm brewing up some thoughts on AI/ML, system architecture, and the art of building
-                                    production-grade applications. Stay tuned for deep dives and practical insights.
+                                    Writing about AI/ML engineering, system architecture, and building production-grade
+                                    intelligent systems — on my dedicated blog.
                                 </p>
 
-                                <div className="flex flex-wrap justify-center gap-3">
+                                <div className="flex flex-wrap justify-center gap-3 mb-10">
                                     {['Agentic AI', 'Deep Learning', 'System Design', 'DevOps', 'Security'].map((topic, i) => (
                                         <span
                                             key={i}
@@ -101,6 +105,21 @@ const Blog = () => {
                                         </span>
                                     ))}
                                 </div>
+
+                                <a
+                                    href="https://pragadhish-blogs.vercel.app"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                    style={{
+                                        background: 'rgb(var(--color-primary))',
+                                        color: 'rgb(var(--color-background))',
+                                    }}
+                                >
+                                    <PenTool size={18} />
+                                    Visit My Blog
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                </a>
                             </div>
                         </div>
                     </div>
